@@ -3,3 +3,6 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+### Wheels/Setup/build ###
+*.egg-info
