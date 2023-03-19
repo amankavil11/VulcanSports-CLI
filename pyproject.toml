@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=67.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "VulcanSports"
+version = "0.0.1"
+authors = [
+    {name = "Abe Mankavil", email = "abe.m.mankavil@gmail.com"},
+]
+description = "Command line interface for quick access to sports scores and odds"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
+]
+dependencies = [
+    "requests"
+]
+keywords = ['Vulcan','Sports']
+
+[tool.setuptools.packages.find]
+#include = ["VulcanSports/*.py"]  
+exclude = ["/VulcanSportsCLIenv"]
+namespaces = false
+
+[project.scripts]
+VulcanSports = "VulcanSports.__main__:main"

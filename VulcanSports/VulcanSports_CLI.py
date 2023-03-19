@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import subprocess
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(prog="VulcanSports")
 
 parser.add_argument("path", nargs="?", const=" ", default=" ")
 
@@ -24,18 +24,25 @@ if not target_dir.is_dir():
     if (x).lower() == 'y':
         print()
         new_dir = input('New directory path?: ')
-        args = ["python", "ls_argv.py", new_dir]
+        args = ["python", "-m","VulcanSports", new_dir]
         process = subprocess.call(args)
         raise SystemExit(1)
     else:
         raise SystemExit(1)
 
-max_len = max(len(entry.name) for entry in target_dir.iterdir())
 
-for i, entry in enumerate(target_dir.iterdir()):
-    if i % 2 == 0 and i != len(list(target_dir.iterdir()))-1:
-        print(f"{entry.name: <{max_len}}", end='\t')
-    else:
+max_len = max(len(entry.name) for entry in target_dir.iterdir())
+entries = list(target_dir.iterdir())
+
+if max_len < 50:
+    for i in range(len(entries)-1):
+        if i % 2 == 0:
+            print(f"{entries[i].name: <{max_len}}", end='\t')
+        else:
+            print(entries[i].name)
+    print(entries[-1].name)
+else:
+    for entry in entries:
         print(entry.name)
 
 
