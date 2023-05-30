@@ -8,7 +8,7 @@ version = "0.0.1"
 authors = [
     {name = "Abe Mankavil", email = "abe.m.mankavil@gmail.com"},
 ]
-description = "Command line interface for quick access to sports scores and odds"
+description = "Command line interface for quick access to sports scores and betting odds"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
